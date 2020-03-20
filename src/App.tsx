@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './asylum-advice-logo.svg';
 import './App.css';
 import MetaTags from 'react-meta-tags';
+import Questionnaire from './views/questionnaire'
 
 export default function App() {
   return <>
@@ -15,6 +16,7 @@ export default function App() {
           AsylumAdvice
         </p>
       </header>
+      <Questionnaire />
     </div>
   </>
 }
