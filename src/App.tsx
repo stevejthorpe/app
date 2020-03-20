@@ -1,6 +1,7 @@
 import React from 'react';
-import logo from './asylum-advice-logo.svg';
+import logo from './ui/Logo.svg';
 import './App.css';
+import Questionnaire from './views/questionnaire';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <p>
           Goin back to my roots!
         </p>
+        <Questionnaire />
       </header>
     </div>
   );
