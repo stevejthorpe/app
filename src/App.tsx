@@ -8,7 +8,11 @@ import { Switch, Route, MemoryRouter } from "react-router-dom";
 
 import { MenuBar } from './Menubar';
 import { Home } from './Home';
+<<<<<<< HEAD
 import { Questionnaire } from './views/Questionnaire';
+=======
+import { Questionaire } from './Questionaire';
+>>>>>>> master
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -39,8 +43,13 @@ export default function App() {
             <Route path="/home">
               <Home />
             </Route>
+<<<<<<< HEAD
             <Route path="/questionnaire">
               <Questionnaire />
+=======
+            <Route path="/questionaire">
+              <Questionaire />
+>>>>>>> master
             </Route>
           </Switch>
         </main>
