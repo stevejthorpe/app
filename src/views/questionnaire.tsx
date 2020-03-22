@@ -2,7 +2,7 @@ import React from 'react';
 import questionImg from '../ui/QuestionairePicture.jpg';
 import '../App.css';
 
-import CountrySelect from '../components/countrySelect'
+import CountrySelect from '../components/CountrySelect'
 
 import { Button, CardMedia, FormControl, Select, TextField, Typography } from '@material-ui/core/';
 
