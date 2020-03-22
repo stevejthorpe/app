@@ -2,6 +2,8 @@ import React from 'react';
 import questionImg from '../ui/QuestionairePicture.jpg';
 import '../App.css';
 
+import CountrySelect from '../components/countrySelect'
+
 import { Button, CardMedia, FormControl, Select, TextField, Typography } from '@material-ui/core/';
 
 interface IQuestionnaire {
@@ -44,23 +46,23 @@ export default function Questionnaire() {
         <div>
             <CardMedia src={questionImg} component='img'></CardMedia>
             
-            <Typography variant='h4' gutterBottom>
+            <Typography>
                 Get and overview of your asylum proceedure by answering a few
             </Typography>
             
 
-            <Typography variant='h4' gutterBottom>
+            <Typography>
                 Why answer questions?
             </Typography>
 
-            <Typography variant='body1' gutterBottom>
+            <Typography>
                 By answering the following questions Asylum Advice can give you a general overview of what will be important in your asylum procedure and where you can find frther help. If you can't answer of of the questions or feel uncomfortable to do so, please skip that question.
             </Typography>
 
             
 
             <FormControl>
-                <Typography variant='body1' gutterBottom>
+                <Typography>
                     How far are you in your asylum procedure?
                 </Typography>
 
@@ -82,7 +84,7 @@ export default function Questionnaire() {
             </FormControl>
 
             <FormControl>
-                <Typography variant='body1' gutterBottom>
+                <Typography>
                     Do you have a visa or asylum status in this country?
                 </Typography>
 
@@ -104,7 +106,7 @@ export default function Questionnaire() {
             </FormControl>
 
             <FormControl>
-                <Typography variant='body1' gutterBottom>
+                <Typography>
                     Did you leave fingerprints in different EU country?
                 </Typography>
 
@@ -126,7 +128,7 @@ export default function Questionnaire() {
             </FormControl>
 
             <FormControl>
-                <Typography variant='body1' gutterBottom>
+                <Typography>
                     Do you have your passport with you?
                 </Typography>
 
@@ -148,23 +150,23 @@ export default function Questionnaire() {
             </FormControl>
 
             <FormControl>
-                <Typography variant='body1' gutterBottom>
+                <Typography>
                     What is your nationality??
                 </Typography>
+                
+                <CountrySelect 
+                    // value={state.nationality}
+                    // onChange={handleChange}
+                    // inputProps={{
+                    //     name: 'nationality',
+                    //     id: 'nationality'
+                    // }}
+                />
 
-                <TextField
-                    value={state.nationality}
-                    // name='asylumProgress'
-                    onChange={handleChange}
-                    inputProps={{
-                        name: 'nationality',
-                        id: 'nationality'
-                    }}
-                /> 
             </FormControl>
 
             <FormControl>
-                <Typography variant='body1' gutterBottom>
+                <Typography>
                     Are you inder 18?
                 </Typography>
 
@@ -178,7 +180,7 @@ export default function Questionnaire() {
                         id: 'under18'
                     }}
                 >
-                    <option aria-label="None" value="" />
+                    <option aria-label="None" value='' />
                     <option value={'No'}>No</option>
                     <option value={'Yes'}>Yes</option>
                    
@@ -186,7 +188,7 @@ export default function Questionnaire() {
             </FormControl>
 
             <FormControl>
-                <Typography variant='body1' gutterBottom>
+                <Typography>
                     Have you come here with members of your family or do you have relatives already in Germany?
                 </Typography>
 
@@ -208,7 +210,7 @@ export default function Questionnaire() {
             </FormControl>
 
             <FormControl>
-                <Typography variant='body1' gutterBottom>
+                <Typography>
                     Are your clode family members still in your home country or somewhere else?
                 </Typography>
 
@@ -230,7 +232,7 @@ export default function Questionnaire() {
             </FormControl>
 
             <FormControl>
-                <Typography variant='body1' gutterBottom>
+                <Typography>
                     In which location are you looking for legal aid?
                 </Typography>
 
@@ -242,6 +244,7 @@ export default function Questionnaire() {
                         name: 'adviceLocation',
                         id: 'advice-location'
                     }}
+                    variant="outlined"
                 />
             </FormControl>
 
@@ -250,7 +253,8 @@ export default function Questionnaire() {
             <Button 
                 color='primary' 
                 type='submit' 
-                >Submit
+            >
+                Submit
             </Button>
         </div>
     );
