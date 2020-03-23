@@ -22,6 +22,7 @@ const useStyles = makeStyles({
   },
 });
 
+
 export default function CountrySelect() {
   const classes = useStyles();
 
@@ -29,7 +30,7 @@ export default function CountrySelect() {
     <Autocomplete
       id="country-select-demo"
       style={{ width: 300 }}
-      options={countries as CountryType[]}
+      options={countries as ICountryType[]}
       classes={{
         option: classes.option,
       }}
@@ -44,7 +45,7 @@ export default function CountrySelect() {
       renderInput={params => (
         <TextField
           {...params}
-          label="Choose a country"
+          // label="Choose a country"
           variant="outlined"
           inputProps={{
             ...params.inputProps,
@@ -56,7 +57,7 @@ export default function CountrySelect() {
   );
 }
 
-interface CountryType {
+interface ICountryType {
   code: string;
   label: string;
   phone: string;

@@ -14,11 +14,8 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
-<<<<<<< HEAD
-=======
     "@types/react-router-dom": "^5.1.3",
     "@types/styled-components": "^5.0.1",
->>>>>>> master
     "gh-pages": "^2.2.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",

@@ -1,10 +1,10 @@
 import React from 'react';
 import questionImg from '../ui/QuestionairePicture.jpg';
-import '../App.css';
 
 import CountrySelect from '../components/CountrySelect'
 
-import { Button, CardMedia, FormControl, Select, TextField, Typography } from '@material-ui/core/';
+import { Button, CardMedia, Container, FormControl, Select, TextField, Typography } from '@material-ui/core/';
+
 
 interface IQuestionnaire {
     asylumProgress: string, 
@@ -17,6 +17,7 @@ interface IQuestionnaire {
     familyElsewhere: string,
     adviceLocation: string
 }
+
 
 export default function Questionnaire() {
 
@@ -39,223 +40,230 @@ export default function Questionnaire() {
             ...state,
             [name]: e.target.value,
         });
-        console.log(state);
+        // console.log(state);
     };
 
     return(
-        <div>
-            <CardMedia src={questionImg} component='img'></CardMedia>
-            
-            <Typography>
-                Get and overview of your asylum proceedure by answering a few
-            </Typography>
-            
+        <>
+            <CardMedia src={questionImg} component='img' ></CardMedia>
 
-            <Typography>
-                Why answer questions?
-            </Typography>
-
-            <Typography>
-                By answering the following questions Asylum Advice can give you a general overview of what will be important in your asylum procedure and where you can find frther help. If you can't answer of of the questions or feel uncomfortable to do so, please skip that question.
-            </Typography>
-
-            
-
-            <FormControl>
-                <Typography>
-                    How far are you in your asylum procedure?
-                </Typography>
-
-                <Select
-                    native
-                    value={state.asylumProgress}
-                    // name='asylumProgress'
-                    onChange={handleChange}
-                    inputProps={{
-                        name: 'asylumProgress',
-                        id: 'aslum-progress'
-                    }}
-                >
-                    <option aria-label="None" value="" />
-                    <option value={'begin'}>About to start</option>
-                    <option value={'inProgress'}>In progress</option>
-                    <option value={'rejected'}>Rejected</option>
-                </Select>
-            </FormControl>
-
-            <FormControl>
-                <Typography>
-                    Do you have a visa or asylum status in this country?
-                </Typography>
-
-                <Select
-                    native
-                    value={state.asylumProgress}
-                    // name='asylumProgress'
-                    onChange={handleChange}
-                    inputProps={{
-                        name: 'visa',
-                        id: 'visa'
-                    }}
-                >
-                    <option aria-label="None" value="" />
-                    <option value={'No'}>No</option>
-                    <option value={'Yes'}>Yes</option>
-                   
-                </Select> 
-            </FormControl>
-
-            <FormControl>
-                <Typography>
-                    Did you leave fingerprints in different EU country?
-                </Typography>
-
-                <Select
-                    native
-                    value={state.fingerprints}
-                    // name='asylumProgress'
-                    onChange={handleChange}
-                    inputProps={{
-                        name: 'fingerprints',
-                        id: 'fingerprints'
-                    }}
-                >
-                    <option aria-label="None" value="" />
-                    <option value={'No'}>No</option>
-                    <option value={'Yes'}>Yes</option>
-                   
-                </Select> 
-            </FormControl>
-
-            <FormControl>
-                <Typography>
-                    Do you have your passport with you?
-                </Typography>
-
-                <Select
-                    native
-                    value={state.passport}
-                    // name='asylumProgress'
-                    onChange={handleChange}
-                    inputProps={{
-                        name: 'passport',
-                        id: 'passport'
-                    }}
-                >
-                    <option aria-label="None" value="" />
-                    <option value={'No'}>No</option>
-                    <option value={'Yes'}>Yes</option>
-                   
-                </Select> 
-            </FormControl>
-
-            <FormControl>
-                <Typography>
-                    What is your nationality??
+            <Container>
+                <Typography variant="h5" align='center' color="textPrimary" gutterBottom={true}>
+                    Get and overview of your asylum proceedure by answering a few
                 </Typography>
                 
-                <CountrySelect 
-                    // value={state.nationality}
-                    // onChange={handleChange}
-                    // inputProps={{
-                    //     name: 'nationality',
-                    //     id: 'nationality'
-                    // }}
-                />
 
-            </FormControl>
-
-            <FormControl>
-                <Typography>
-                    Are you inder 18?
+                <Typography variant="h5" align='center' color="textPrimary" gutterBottom={true}>
+                    Why answer questions?
                 </Typography>
 
-                <Select
-                    native
-                    value={state.under18}
-                    // name='asylumProgress'
-                    onChange={handleChange}
-                    inputProps={{
-                        name: 'under18',
-                        id: 'under18'
-                    }}
+                <Typography variant="body1" color="textPrimary" paragraph={true}>
+                    By answering the following questions Asylum Advice can give you a general overview of what will be important in your asylum procedure and where you can find frther help. If you can't answer of of the questions or feel uncomfortable to do so, please skip that question.
+                </Typography>
+            </Container>
+            
+            <Container>
+                <FormControl>
+                    <Typography variant="body1" color="textPrimary" component="p">
+                        How far are you in your asylum procedure?
+                    </Typography>
+
+                    <Select
+                        native
+                        value={state.asylumProgress}
+                        onChange={handleChange}
+                        inputProps={{
+                            name: 'asylumProgress',
+                            id: 'aslum-progress'
+                        }}
+                        variant="outlined"
+                        // input={<BootstrapInput />}
+                    >
+                        <option aria-label="None" value="" />
+                        <option value={'begin'}>About to start</option>
+                        <option value={'inProgress'}>In progress</option>
+                        <option value={'rejected'}>Rejected</option>
+                    </Select>
+                </FormControl>
+
+                <FormControl>
+                    <Typography variant="body1" color="textPrimary" component="p">
+                        Do you have a visa or asylum status in this country?
+                    </Typography>
+
+                    <Select
+                        native
+                        value={state.visa}
+                        // name='asylumProgress'
+                        onChange={handleChange}
+                        inputProps={{
+                            name: 'visa',
+                            id: 'visa'
+                        }}
+                        variant="outlined"
+                        // input={<BootstrapInput />}
+                    >
+                        <option aria-label="None" value="" />
+                        <option value={'No'}>No</option>
+                        <option value={'Yes'}>Yes</option>
+                    
+                    </Select> 
+                </FormControl>
+
+                <FormControl>
+                    <Typography variant="body1" color="textPrimary" component="p">
+                        Did you leave fingerprints in different EU country?
+                    </Typography>
+
+                    <Select
+                        native
+                        value={state.fingerprints}
+                        onChange={handleChange}
+                        inputProps={{
+                            name: 'fingerprints',
+                            id: 'fingerprints'
+                        }}
+                        variant="outlined"
+                    >
+                        <option aria-label="None" value="" />
+                        <option value={'No'}>No</option>
+                        <option value={'Yes'}>Yes</option>
+                    
+                    </Select> 
+                </FormControl>
+
+                <FormControl>
+                    <Typography variant="body1" color="textPrimary" component="p">
+                        Do you have your passport with you?
+                    </Typography>
+
+                    <Select
+                        native
+                        value={state.passport}
+                        onChange={handleChange}
+                        inputProps={{
+                            name: 'passport',
+                            id: 'passport'
+                        }}
+                        variant="outlined"
+                    >
+                        <option aria-label="None" value="" />
+                        <option value={'No'}>No</option>
+                        <option value={'Yes'}>Yes</option>
+                    
+                    </Select> 
+                </FormControl>
+
+                <FormControl>
+                    <Typography variant="body1" color="textPrimary" component="p">
+                        What is your nationality??
+                    </Typography>
+                    
+                    <CountrySelect
+                        // value={state.nationality}
+                        // onChange={handleChange}
+                        // inputProps={{
+                        //     name: 'nationality',
+                        //     id: 'nationality'
+                        // }}
+                        // input={<BootstrapInput />}
+                    />
+
+                </FormControl>
+
+                <FormControl>
+                    <Typography variant="body1" color="textPrimary" component="p">
+                        Are you under 18?
+                    </Typography>
+
+                    <Select
+                        native
+                        value={state.under18}
+                        onChange={handleChange}
+                        inputProps={{
+                            name: 'under18',
+                            id: 'under18'
+                        }}
+                        variant="outlined"
+                    >
+                        <option aria-label="None" value='' />
+                        <option value={'No'}>No</option>
+                        <option value={'Yes'}>Yes</option>
+                    
+                    </Select> 
+                </FormControl>
+
+                <FormControl>
+                    <Typography variant="body1" color="textPrimary" component="p">
+                        Have you come here with members of your family or do you have relatives already in Germany?
+                    </Typography>
+
+                    <Select
+                        native
+                        value={state.familyInGermany}
+                        onChange={handleChange}
+                        inputProps={{
+                            name: 'familyInGermany',
+                            id: 'family-germany'
+                        }}
+                        variant="outlined"
+                    >
+                        <option aria-label="None" value="" />
+                        <option value={'No'}>No</option>
+                        <option value={'Yes'}>Yes</option>
+                    
+                    </Select> 
+                </FormControl>
+
+                <FormControl>
+                    <Typography variant="body1" color="textPrimary" component="p">
+                        Are your clode family members still in your home country or somewhere else?
+                    </Typography>
+
+                    <Select
+                        native
+                        value={state.familyElsewhere}
+                        onChange={handleChange}
+                        inputProps={{
+                            name: 'familyElsewhere',
+                            id: 'family-elsewhere'
+                        }}
+                        variant="outlined"
+                    >
+                        <option aria-label="None" value="" />
+                        <option value={'No'}>No</option>
+                        <option value={'Yes'}>Yes</option>
+                    
+                    </Select> 
+                </FormControl>
+
+                <FormControl>
+                    <Typography variant="body1" color="textPrimary" component="p">
+                        In which location are you looking for legal aid?
+                    </Typography>
+
+                    <TextField
+                        value={state.adviceLocation}
+                        onChange={handleChange}
+                        inputProps={{
+                            name: 'adviceLocation',
+                            id: 'advice-location'
+                        }}
+                        variant="outlined"
+                    />
+                </FormControl>
+
+
+
+                <Button 
+                    variant='contained'
+                    color='primary' 
+                    type='submit'
+                    onClick={() => console.log('Form: ', state)}
                 >
-                    <option aria-label="None" value='' />
-                    <option value={'No'}>No</option>
-                    <option value={'Yes'}>Yes</option>
-                   
-                </Select> 
-            </FormControl>
-
-            <FormControl>
-                <Typography>
-                    Have you come here with members of your family or do you have relatives already in Germany?
-                </Typography>
-
-                <Select
-                    native
-                    value={state.familyInGermany}
-                    // name='asylumProgress'
-                    onChange={handleChange}
-                    inputProps={{
-                        name: 'familyInGermany',
-                        id: 'family-germany'
-                    }}
-                >
-                    <option aria-label="None" value="" />
-                    <option value={'No'}>No</option>
-                    <option value={'Yes'}>Yes</option>
-                   
-                </Select> 
-            </FormControl>
-
-            <FormControl>
-                <Typography>
-                    Are your clode family members still in your home country or somewhere else?
-                </Typography>
-
-                <Select
-                    native
-                    value={state.familyElsewhere}
-                    // name='asylumProgress'
-                    onChange={handleChange}
-                    inputProps={{
-                        name: 'familyElsewhere',
-                        id: 'family-elsewhere'
-                    }}
-                >
-                    <option aria-label="None" value="" />
-                    <option value={'No'}>No</option>
-                    <option value={'Yes'}>Yes</option>
-                   
-                </Select> 
-            </FormControl>
-
-            <FormControl>
-                <Typography>
-                    In which location are you looking for legal aid?
-                </Typography>
-
-                <TextField
-                    value={state.adviceLocation}
-                    // name='asylumProgress'
-                    onChange={handleChange}
-                    inputProps={{
-                        name: 'adviceLocation',
-                        id: 'advice-location'
-                    }}
-                    variant="outlined"
-                />
-            </FormControl>
-
-
-
-            <Button 
-                color='primary' 
-                type='submit' 
-            >
-                Submit
-            </Button>
-        </div>
+                    Submit
+                </Button>
+            </Container>
+        </>
     );
 }
