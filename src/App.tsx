@@ -23,8 +23,13 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
+interface AppState {
+  hasClickedOnFoo: boolean
+}
+
 export default function App() {
   const classes = useStyles();
+
   return <>
     {/* https://material-ui.com/getting-started/usage/#responsive-meta-tag */}
     <MetaTags>
@@ -40,7 +45,7 @@ export default function App() {
               <Home />
             </Route>
             <Route path="/questionaire">
-              <Questionnaire />
+              <Questionnaire onClick={() => console.log('hello')} />
             </Route>
           </Switch>
         </main>

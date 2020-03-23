@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
 import questionImg from '../ui/QuestionairePicture.jpg';
 
 import CountrySelect from '../components/CountrySelect'
@@ -18,8 +18,11 @@ interface IQuestionnaire {
     adviceLocation: string
 }
 
+export interface QuestionnaireProps {
+    onClick: MouseEventHandler<any>;
+}
 
-export default function Questionnaire() {
+export default function Questionnaire(props: QuestionnaireProps) {
 
     const [state, setState] = React.useState<IQuestionnaire>({
         asylumProgress: '',
@@ -259,7 +262,7 @@ export default function Questionnaire() {
                     variant='contained'
                     color='primary' 
                     type='submit'
-                    onClick={() => console.log('Form: ', state)}
+                    onClick={props.onClick}
                 >
                     Submit
                 </Button>
