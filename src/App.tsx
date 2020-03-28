@@ -8,7 +8,8 @@ import { Switch, Route, MemoryRouter } from "react-router-dom";
 
 import { MenuBar } from './Menubar';
 import { Home } from './Home';
-import Questionnaire from './views/questionnaire';
+import Questionnaire from './views/Questionnaire';
+
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
