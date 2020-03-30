@@ -149,15 +149,7 @@ export default function Questionnaire() {
                         What is your nationality??
                     </Typography>
                     
-                    <CountrySelect
-                        // value={state.nationality}
-                        // onChange={(e) => actions({type:'setState', payload: {...state, nationality: e.target.value}})}
-                        // inputProps={{
-                        //     name: 'nationality',
-                        //     id: 'nationality'
-                        // }}
-                        // input={<BootstrapInput />}
-                    />
+                    <CountrySelect />
 
                 </FormControl>
 
