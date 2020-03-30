@@ -22,7 +22,6 @@ const useStyles = makeStyles({
   },
 });
 
-
 export default function CountrySelect() {
   const classes = useStyles();
 
@@ -30,7 +29,7 @@ export default function CountrySelect() {
     <Autocomplete
       id="country-select-demo"
       style={{ width: 300 }}
-      options={countries as ICountryType[]}
+      options={countries as CountryType[]}
       classes={{
         option: classes.option,
       }}
@@ -57,7 +56,7 @@ export default function CountrySelect() {
   );
 }
 
-interface ICountryType {
+interface CountryType {
   code: string;
   label: string;
   phone: string;
