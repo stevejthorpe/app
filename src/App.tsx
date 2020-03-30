@@ -8,8 +8,8 @@ import { Switch, Route, MemoryRouter } from "react-router-dom";
 
 import { MenuBar } from './components/Menubar';
 import { Home } from './views/Home';
-import Questionnaire from './views/Questionnaire';
 import Overview from './views/Overview';
+import Questionnaire from './views/Questionnaire';
 
 
 
@@ -42,11 +42,11 @@ export default function App() {
             <Route path="/home">
               <Home />
             </Route>
-            <Route path="/questionaire">
-              <Questionnaire />
-            </Route>
             <Route path="/overview">
               <Overview />
+            </Route>
+            <Route path="/questionaire">
+              <Questionnaire />
             </Route>
           </Switch>
         </main>
