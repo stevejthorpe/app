@@ -6,6 +6,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 import { Link as RouterLink, LinkProps as RouterLinkProps } from "react-router-dom";
 import { Omit } from '@material-ui/types';
 
+const shortid = require('shortid');
+
 const drawerWidth = 240
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -129,7 +131,7 @@ export function MenuBar() {
             <Divider />
             <List>
                 {pages.map((item) => (
-                    <ListItemLink primary={item[0]} to={`/${item[1]}`} />
+                    <ListItemLink key={shortid.generate()} primary={item[0]} to={`/${item[1]}`} />
                 ))}
             </List>
         </div>
