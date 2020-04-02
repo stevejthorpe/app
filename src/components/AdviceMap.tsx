@@ -47,6 +47,8 @@ export default function AdviceMap() {
 
     const [selectedAdvice, setSelectedAdvice] = useState(null)
 
+    console.log('Selected: ', selectedAdvice);
+
     return(
         <Card className={classes.root}>
 
@@ -71,7 +73,7 @@ export default function AdviceMap() {
                             onClick={e => {
                                 e.preventDefault();
                                 setSelectedAdvice(adviser);
-                                console.log('adviser object: ', adviser)
+                                // console.log('adviser object: ', adviser)
                                 // console.log('inner: ', typeof(adviser.geometry.coordinates[0]))
                                 // console.log('lon lat: ', adviser.geometry.coordinates[0])
                                 // console.log('Math.floor: ', (typeof(adviser.geometry.coordinates[0])))
@@ -82,14 +84,20 @@ export default function AdviceMap() {
                     </Marker>
                 ))}
 
-                {/* {selectedAdvice ? (
+                {selectedAdvice ? (
+                    // console.log(selectedAdvice.properties)
                     <Popup 
                         latitude={Number(selectedAdvice.geometry.coordinates[1])} 
-                        longitude={Number(selectedAdvice.geometry.coordinates[0])}>
-                        <div>adviser</div>
+                        longitude={Number(selectedAdvice.geometry.coordinates[0])}
+                        onClose={() => {setSelectedAdvice(null);
+                        }}
+                    >
+                        <h4>{selectedAdvice.properties.name}</h4>
+                        <p>{selectedAdvice.properties.language}</p>
 
                     </Popup>
-                ) : null} */}
+                   
+                ) : null};
 
             </ReactMapGL>
         </Card>

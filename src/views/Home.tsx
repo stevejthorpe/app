@@ -8,6 +8,9 @@ import styled from 'styled-components';
 
 import { Link } from "react-router-dom";
 
+import AdviceMap from '../components/AdviceMap';
+
+
 const useStyles = makeStyles(() =>
     createStyles({
         root: {
@@ -45,6 +48,7 @@ function OverviewCard() {
           </Typography>
             </CardContent>
         </Card>
+        <AdviceMap />
     </>
 }
 
