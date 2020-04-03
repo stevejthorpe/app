@@ -3,11 +3,9 @@ import ReactMapGL, { Marker, Popup } from "react-map-gl";
 import * as adviceGeo from "../data/adviceGeo.json";
 import POIIcon from "../ui/POIIcon.svg";
 import LanguagesIcon from "../ui/LanguagesIcon.svg";
-import { Card } from "@material-ui/core";
 // import AdviceSearch from "../components/AdviceSearch";
+import { Card } from "@material-ui/core";
 import { makeStyles, createStyles } from "@material-ui/core";
-import { Button } from "@material-ui/core/";
-import { Link } from "react-router-dom";
 
 const shortid = require("shortid");
 
@@ -61,8 +59,6 @@ export default function AdviceMap() {
 
   const [selectedAdvice, setSelectedAdvice] = useState(null);
 
-  console.log("Selected: ", selectedAdvice);
-
   return (
     <>
       <Card className={classes.root}>
@@ -81,25 +77,16 @@ export default function AdviceMap() {
               <img src={LanguagesIcon} alt="user location ison" />
             </button>
           </Marker>
-          {/* {console.log(typeof(adviceGeo.features[0].geometry.coordinates[1]))} */}
-          {/* {console.log('lon lat: ', adviceGeo.features[0].geometry.coordinates)} */}
-          {/* {adviceGeo.features.map((i: any) => console.log(i))} */}
           {adviceGeo.features.map((adviser: any) => (
             <Marker
               key={shortid.generate()}
               latitude={Number(adviser.geometry.coordinates[1])}
               longitude={Number(adviser.geometry.coordinates[0])}
-              // latitude={viewport.latitude}
-              // longitude={viewport.longitude}
             >
               <button
                 onClick={e => {
                   e.preventDefault();
                   setSelectedAdvice(adviser);
-                  // console.log('adviser object: ', adviser)
-                  // console.log('inner: ', typeof(adviser.geometry.coordinates[0]))
-                  // console.log('lon lat: ', adviser.geometry.coordinates[0])
-                  // console.log('Math.floor: ', (typeof(adviser.geometry.coordinates[0])))
                 }}
               >
                 <img src={POIIcon} alt="Advice Centre Icon" />
@@ -107,7 +94,6 @@ export default function AdviceMap() {
             </Marker>
           ))}
           {selectedAdvice ? (
-            // console.log(selectedAdvice.properties)
             <Popup
               latitude={Number(selectedAdvice.geometry.coordinates[1])}
               longitude={Number(selectedAdvice.geometry.coordinates[0])}
@@ -130,8 +116,6 @@ export default function AdviceMap() {
               >
                 More details
               </button>
-
-              {/* <button>More details</button> */}
             </Popup>
           ) : null}
           ;
