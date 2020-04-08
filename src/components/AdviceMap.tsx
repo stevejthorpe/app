@@ -3,7 +3,7 @@ import ReactMapGL, { Marker, Popup } from "react-map-gl";
 import * as adviceGeo from "../data/adviceGeo.json";
 import POIIcon from "../ui/POIIcon.svg";
 import LanguagesIcon from "../ui/LanguagesIcon.svg";
-// import AdviceSearch from "../components/AdviceSearch";
+import AdviceSearch from "../components/AdviceSearch";
 import { Card } from "@material-ui/core";
 import { makeStyles, createStyles } from "@material-ui/core";
 
@@ -23,12 +23,12 @@ interface IViewState {
 const useStyles = makeStyles(() =>
   createStyles({
     root: {
-      flexGrow: 1
+      flexGrow: 1,
     },
     media: {
       height: 0,
-      paddingTop: "56.25%" // 16:9
-    }
+      paddingTop: "56.25%", // 16:9
+    },
   })
 );
 
@@ -41,20 +41,20 @@ export default function AdviceMap() {
     longitude: 13.404954,
     height: 250,
     width: 360,
-    zoom: 10
+    zoom: 10,
   });
 
   useEffect(() => {
-    console.log("Component mounted");
-    navigator.geolocation.getCurrentPosition(pos => {
+    // console.log("Component mounted");
+    navigator.geolocation.getCurrentPosition((pos) => {
       setViewport({
         ...viewport,
         latitude: pos.coords.latitude,
-        longitude: pos.coords.longitude
+        longitude: pos.coords.longitude,
       });
     });
-    console.log("Inner vp: ", viewport);
-    console.log("Current pos: ", navigator.geolocation);
+    // console.log("Inner vp: ", viewport);
+    // console.log("Current pos: ", navigator.geolocation);
   });
 
   const [selectedAdvice, setSelectedAdvice] = useState(null);
@@ -65,7 +65,7 @@ export default function AdviceMap() {
         <ReactMapGL
           {...viewport}
           mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
-          onViewportChange={viewport => setViewport(viewport)}
+          onViewportChange={(viewport) => setViewport(viewport)}
           mapStyle="mapbox://styles/stevejt/ck8htanhp0bec1inyuih6ps92"
         >
           <Marker
@@ -84,7 +84,7 @@ export default function AdviceMap() {
               longitude={Number(adviser.geometry.coordinates[0])}
             >
               <button
-                onClick={e => {
+                onClick={(e) => {
                   e.preventDefault();
                   setSelectedAdvice(adviser);
                 }}
@@ -118,11 +118,9 @@ export default function AdviceMap() {
               </button>
             </Popup>
           ) : null}
-          ;
         </ReactMapGL>
       </Card>
+      <AdviceSearch />
     </>
   );
 }
-
-/* <AdviceSearch /> */
