@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/app/static/css/main.5ecd60fb.chunk.css",
+    "main.js": "/app/static/js/main.620ae433.chunk.js",
+    "main.js.map": "/app/static/js/main.620ae433.chunk.js.map",
+    "runtime-main.js": "/app/static/js/runtime-main.ee29eaf4.js",
+    "runtime-main.js.map": "/app/static/js/runtime-main.ee29eaf4.js.map",
+    "static/js/2.b4ba21af.chunk.js": "/app/static/js/2.b4ba21af.chunk.js",
+    "static/js/2.b4ba21af.chunk.js.map": "/app/static/js/2.b4ba21af.chunk.js.map",
+    "index.html": "/app/index.html",
+    "precache-manifest.30138fa40a98fdf97a06f02a708953a5.js": "/app/precache-manifest.30138fa40a98fdf97a06f02a708953a5.js",
+    "service-worker.js": "/app/service-worker.js",
+    "static/css/main.5ecd60fb.chunk.css.map": "/app/static/css/main.5ecd60fb.chunk.css.map",
+    "static/js/2.b4ba21af.chunk.js.LICENSE.txt": "/app/static/js/2.b4ba21af.chunk.js.LICENSE.txt",
+    "static/media/LanguagesIcon.svg": "/app/static/media/LanguagesIcon.2a1edab4.svg",
+    "static/media/Logoshort.svg": "/app/static/media/Logoshort.92c6d77a.svg",
+    "static/media/POIIcon.svg": "/app/static/media/POIIcon.6eab937f.svg",
+    "static/media/QuestionairePicture.jpg": "/app/static/media/QuestionairePicture.19331d5d.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ee29eaf4.js",
+    "static/js/2.b4ba21af.chunk.js",
+    "static/css/main.5ecd60fb.chunk.css",
+    "static/js/main.620ae433.chunk.js"
+  ]
+}
