@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import Context from "../store/context";
+import CityFilter from "../components/CityFilter"
 import CountrySelect from "./CountrySelect";
 import {
   Button,
@@ -235,8 +236,9 @@ export default function Questionnaire(props: any) {
           <Typography variant="body1" color="textPrimary" component="p">
             In which location are you looking for legal aid?
           </Typography>
+          <CityFilter />
 
-          <TextField
+          {/* <TextField
             value={state.adviceLocation}
             onChange={(e) =>
               actions({
@@ -245,7 +247,7 @@ export default function Questionnaire(props: any) {
               })
             }
             variant="outlined"
-          />
+          /> */}
         </FormControl>
 
         <Button

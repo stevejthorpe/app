@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect, useContext } from "react";
+import React, { useState, useEffect, useLayoutEffect, useContext } from "react";
 import Context from "../store/context";
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
 import adviceGeo from "../data/adviceGeo.json";
@@ -64,22 +64,24 @@ export default function AdviceMap() {
     longitude: 13.404954,
     height: 250,
     width: 360,
-    zoom: 8,
+    zoom: 9,
   });
 
   // Adisor selection
   const [selectedAdvice, setSelectedAdvice] = useState(null);
 
   // Get user long lat
-  useLayoutEffect(() => {
+  useEffect(() => {
     navigator.geolocation.getCurrentPosition((pos) => {
+      console.log("Lat: ", pos.coords.latitude);
+      console.log("Lon: ", pos.coords.longitude);
       setViewport({
         ...viewport,
         latitude: pos.coords.latitude,
         longitude: pos.coords.longitude,
       });
     });
-  });
+  }, []);
 
   // Set viewport size dynamically. Needed because we cannot use vh and vw
   useLayoutEffect(() => {
@@ -89,6 +91,14 @@ export default function AdviceMap() {
       width: windowWidth,
     });
   }, [windowWidth]);
+
+  const handleSelectedAdvisor = (event: object, value: any) => {
+    console.log("Selected adviser: ", value);
+    actions({
+      type: "setState",
+      payload: { ...state, selectedAdisor: value },
+    });
+  };
 
   
 
@@ -156,9 +166,11 @@ export default function AdviceMap() {
 
               <Button
                 // TODO create selected advisor list
-                onClick={() =>
-                  console.log("Selected adviser: ", selectedAdvice)
-                }
+                // onClick={() =>
+                //   console.log("Selected adviser: ", selectedAdvice)
+                // }
+                onClick={() => handleSelectedAdvisor}
+                // onClick={handleSelectedAdvisor}
                 variant="contained"
                 color="primary"
                 type="submit"

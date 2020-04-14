@@ -7,15 +7,15 @@ import { makeStyles } from "@material-ui/core/styles";
 
 // ISO 3166-1 alpha-2
 // ⚠️ No support for IE 11
-function countryToFlag(isoCode: string) {
-  return typeof String.fromCodePoint !== "undefined"
-    ? isoCode
-        .toUpperCase()
-        .replace(/./g, char =>
-          String.fromCodePoint(char.charCodeAt(0) + 127397)
-        )
-    : isoCode;
-}
+// function countryToFlag(isoCode: string) {
+//   return typeof String.fromCodePoint !== "undefined"
+//     ? isoCode
+//         .toUpperCase()
+//         .replace(/./g, char =>
+//           String.fromCodePoint(char.charCodeAt(0) + 127397)
+//         )
+//     : isoCode;
+// }
 
 const useStyles = makeStyles({
   option: {
@@ -32,22 +32,13 @@ export default function CountrySelect() {
   const { state, actions }: any = useContext(Context);
 
   const handleNationality = (event: any, value: any) => {
-    console.log("handleNationality: ", value.label);
+    // console.log("handleNationality: ", value.label);
     actions({
       type: "setState",
       payload: { ...state, nationality: value.label as string},
     });
-    console.log("handleNationality STATE: ", state)
+    // console.log("handleNationality STATE: ", state)
   };
-
-  // const handleNationality = (e:any, v:ICountryType) => {
-  //   e.preventDefault();
-  //   console.log("handleCityChange: ", e.target.value);
-  //   actions({
-  //     type: "setState",
-  //     payload: { ...state, nationality: e.target.value },
-  //   });
-  // };
 
   return (
     <Autocomplete

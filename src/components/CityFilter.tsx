@@ -1,6 +1,5 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import Context from "../store/context";
-import IGlobalState from "../interfaces/IGlobalState";
 import adviceGeo from "../data/adviceGeo.json";
 import { getValues } from "../components/getObjects";
 // Material-ui
@@ -47,32 +46,13 @@ export default function CityFilter() {
     const classes = useStyles();
     const cityList = getCityList();
     const { state, actions }: any = useContext(Context);
-    // console.log(cityList);
-    // City search
-    const [options, setOptions] = useState("");
-    const [inputValue, setInputValue] = useState("");
-    // console.log("City options: ", options);
-    // console.log('City inputValue: ', inputValue)
-
-    // const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
-    //   setOptions(event.target.value as string);
-    // };
     
     const handleCityChange = (event: object, value: any) => {
-      console.log("handleCityChange: ", value);
       actions({
         type: "setState",
         payload: { ...state, prefCity: value },
       });
     };
-
-    // const handleCityChange = (e: React.ChangeEvent<{ value: unknown }>) => {
-    //   console.log("handleCityChange: ", e.target.value);
-    //   actions({
-    //     type: "setState",
-    //     payload: { ...state, prefCity: e.target.value },
-    //   });
-    // };
 
     return (
       <>

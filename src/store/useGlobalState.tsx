@@ -17,6 +17,7 @@ const useGlobalState = () => {
     // Map selections
     prefCity: "",
     prefLang: "English",
+    selectedAdisor: "",
   });
 
   const actions = (action: { type: any; payload: any }) => {
