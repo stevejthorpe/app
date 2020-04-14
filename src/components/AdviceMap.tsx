@@ -72,25 +72,43 @@ export default function AdviceMap() {
 
   // Get user long lat
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition((pos) => {
-      console.log("Lat: ", pos.coords.latitude);
-      console.log("Lon: ", pos.coords.longitude);
-      setViewport({
-        ...viewport,
-        latitude: pos.coords.latitude,
-        longitude: pos.coords.longitude,
-      });
-    });
+    var options = {
+      enableHighAccuracy: true,
+      timeout: 5000,
+      maximumAge: 0,
+    };
+
+    function success(pos: { coords: any; }) {
+      var crd = pos.coords;
+
+      console.log("Your current position is:");
+      console.log(`Latitude : ${crd.latitude}`);
+      console.log(`Longitude: ${crd.longitude}`);
+      console.log(`More or less ${crd.accuracy} meters.`);
+
+      setViewport((prevViewport: IViewState) => ({
+        ...prevViewport,
+        latitude: crd.latitude / 3,
+        longitude: crd.longitude,
+      }));
+    }
+
+    function error(err: { code: any; message: any; }) {
+      console.warn(`ERROR(${err.code}): ${err.message}`);
+    }
+
+    navigator.geolocation.getCurrentPosition(success, error, options);
+
   }, []);
 
   // Set viewport size dynamically. Needed because we cannot use vh and vw
   useLayoutEffect(() => {
-    setViewport({
-      ...viewport,
+    setViewport((prevViewport: IViewState) => ({
+      ...prevViewport,
       height: windowHeight / 3,
       width: windowWidth,
-    });
-  }, [windowWidth]);
+    }));
+  }, [windowHeight, windowWidth]);
 
   const handleSelectedAdvisor = (event: object, value: any) => {
     console.log("Selected adviser: ", value);
@@ -99,8 +117,6 @@ export default function AdviceMap() {
       payload: { ...state, selectedAdisor: value },
     });
   };
-
-  
 
   return (
     <>
