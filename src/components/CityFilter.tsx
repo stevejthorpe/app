@@ -31,8 +31,6 @@ const getCityList = () => {
     return cleanList
 };
 
-
-
 const defaultProps = {
   endpoint: "https://api.tiles.mapbox.com",
   inputClass: "",

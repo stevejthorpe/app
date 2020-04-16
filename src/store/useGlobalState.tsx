@@ -22,7 +22,7 @@ const useGlobalState = () => {
     latitude: 52.520008,
     longitude: 13.404954,
     height: "40vh",
-    width: "96vw",
+    width: "99vw",
     zoom: 9,
     userLon: 52.520008,
     userLat: 52.520008,

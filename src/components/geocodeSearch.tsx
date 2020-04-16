@@ -40,19 +40,3 @@ export default function search(
         console.log(error);
         });
 }
-
-// .then(function (err: any, res: any, body: any) {
-//             console.log('res: ', res)
-//             callback(err, res, body, searchTime);
-//         })
-
-// export default function search(
-//   endpoint: string,
-//   source: string,
-//   accessToken: string,
-//   proximity: string,
-//   bbox: string,
-//   dtypes: any,
-//   query: string | number,
-//   callback: (arg0: any, arg1: any, arg2: any, arg3: Date) => void
-// );

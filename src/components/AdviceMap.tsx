@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import Context from "../store/context";
 import ReactMapGL, {
   GeolocateControl,
@@ -8,10 +8,9 @@ import ReactMapGL, {
 } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import adviceGeo from "../data/adviceGeo.json";
-
+// console.log("adviceGeo: ", adviceGeo);
 import CityFilter from "../components/CityFilter";
 import LangFilter from "../components/LangFilter";
-import { useWindowSize } from "../components/useWindowSize";
 
 import { Button, Card, Typography } from "@material-ui/core";
 import { makeStyles, createStyles } from "@material-ui/core";
@@ -19,9 +18,6 @@ import POIIcon from "../ui/POIIcon.svg";
 import LanguagesIcon from "../ui/LanguagesIcon.svg";
 
 import { Link } from "react-router-dom";
-
-
-console.log('adviceGeo: ', adviceGeo);
 
 const shortid = require("shortid");
 
@@ -58,9 +54,7 @@ const geolocateStyle: any = {
 export default function AdviceMap() {
   const classes = useStyles();
   const { state, actions }: any = useContext(Context);
-
-  console.log('adviceMap State: ', state);
-
+  // console.log('adviceMap State: ', state);
 
   // Adisor selection
   const [selectedAdvice, setSelectedAdvice] = useState(null);
@@ -87,8 +81,8 @@ export default function AdviceMap() {
         <ReactMapGL
           {...state}
           mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
-          onViewportChange={(viewport) =>
-            actions({
+          onViewportChange={(viewport) => {
+              actions({
               type: "setState",
               payload: {
                 ...state,
@@ -97,9 +91,9 @@ export default function AdviceMap() {
                 latitude: state.latitude,
                 longitude: state.longitude,
               },
-            })
+            })} 
           }
-          mapStyle="mapbox://styles/stevejt/ck8htanhp0bec1inyuih6ps92"
+          mapStyle="mapbox://styles/stevejt/ck8htanhp0bec1inyuih6ps92" 
         >
           <GeolocateControl
             style={geolocateStyle}
@@ -108,7 +102,7 @@ export default function AdviceMap() {
             showUserLocation={true}
           />
           <div style={{ position: "absolute", right: 0 }}>
-            <NavigationControl />
+            <NavigationControl showCompass={false} />
           </div>
 
           {adviceGeo.features.map((adviser: any) => (
@@ -154,7 +148,6 @@ export default function AdviceMap() {
                 //   console.log("Selected adviser: ", selectedAdvice)
                 // }
                 onClick={() => handleSelectedAdvisor}
-                // onClick={handleSelectedAdvisor}
                 variant="contained"
                 color="primary"
                 type="submit"
