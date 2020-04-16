@@ -61,25 +61,9 @@ export default function AdviceMap() {
 
   console.log('adviceMap State: ', state);
 
-  // Responsive window size
-  const windowSize = useWindowSize();
-  const windowHeight = windowSize[1];
-  const windowWidth = windowSize[0];
 
   // Adisor selection
   const [selectedAdvice, setSelectedAdvice] = useState(null);
-
-  // Set viewport size dynamically. Needed because we cannot use vh and vw
-  useLayoutEffect(() => {
-    actions({
-      type: "setState",
-      payload: {
-        ...state,
-        height: windowHeight / 3,
-        width: windowWidth,
-      },
-    })
-  }, [windowHeight, windowWidth]);
 
   const handleSelectedAdvisor = (event: object, value: any) => {
     console.log("Selected adviser: ", value);
@@ -108,10 +92,10 @@ export default function AdviceMap() {
               type: "setState",
               payload: {
                 ...state,
-                height: windowHeight / 3,
-                width: windowWidth,
-                latitude: viewport.latitude,
-                longitude: viewport.longitude,
+                height: state.height,
+                width: state.width,
+                latitude: state.latitude,
+                longitude: state.longitude,
               },
             })
           }
